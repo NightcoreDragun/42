@@ -1,16 +1,15 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nightcoredragun <nightcoredragun@studen    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 15:24:59 by nightcoredr       #+#    #+#             */
-/*   Updated: 2024/10/01 15:40:51 by nightcoredr      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../libft.h"
 
-int	ft_isdigit(int c)
+/**
+ * ft_isdigit - Vérifie si un caractère est un chiffre
+ * @c: Le caractère à tester
+ *
+ * Cette fonction renvoie 1 si le caractère `c` est un chiffre décimal (0-9),
+ * et 0 sinon.
+ *
+ * Retourne 1 si c'est un chiffre, 0 sinon.
+ */
+int ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

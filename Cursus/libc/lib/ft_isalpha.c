@@ -1,17 +1,17 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nightcoredragun <nightcoredragun@studen    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/02 11:35:09 by nightcoredr       #+#    #+#             */
-/*   Updated: 2024/10/02 12:32:30 by nightcoredr      ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "../libft.h"
 
-int	ft_isalpha(int c)
+/**
+ * ft_isalpha - Vérifie si un caractère est une lettre de l'alphabet
+ * @c: Le caractère à tester
+ *
+ * Cette fonction renvoie 1 si le caractère `c` est une lettre majuscule (A-Z)
+ * ou minuscule (a-z), et 0 sinon.
+ *
+ * Retourne 1 si c'est une lettre, 0 sinon.
+ */
+int ft_isalpha(int c)
 {
+	// Vérifie si le caractère est une lettre majuscule ou minuscule
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 	{
 		return (1);

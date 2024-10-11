@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:59:20 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:59:48 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -14,26 +26,20 @@
  * Retourne un pointeur vers le début de la sous-chaîne trouvée, ou NULL si
  * `needle` n'est pas trouvée dans `len` caractères.
  */
-char *ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    size_t i;
-    size_t needle_len;
+	size_t	i;
+	size_t	needle_len;
 
-    // Si needle est une chaîne vide, retourne haystack
-    if (*needle == '\0')
-        return ((char *)haystack);
-
-    needle_len = ft_strlen(needle);
-
-    // Parcourt haystack jusqu'à len - needle_len pour éviter un dépassement
-    i = 0;
-    while (haystack[i] && (i + needle_len) <= len)
-    {
-        if (ft_strncmp(&haystack[i], needle, needle_len) == 0)
-            return ((char *)&haystack[i]); // Retourne un pointeur si needle est trouvé
-        i++;
-    }
-
-    // Si needle n'est pas trouvée, retourne NULL
-    return (NULL);
+	if (*needle == '\0')
+		return ((char *)haystack);
+	needle_len = ft_strlen(needle);
+	i = 0;
+	while (haystack[i] && (i + needle_len) <= len)
+	{
+		if (ft_strncmp(&haystack[i], needle, needle_len) == 0)
+			return ((char *)&haystack[i]);
+		i++;
+	}
+	return (NULL);
 }

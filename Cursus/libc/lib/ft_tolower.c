@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 14:06:57 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 14:07:37 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -12,10 +24,9 @@
  * Retourne le caractère converti en minuscule, ou le caractère inchangé
  * s'il n'est pas une majuscule.
  */
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    // Si le caractère est une lettre majuscule, on le convertit en minuscule
-    if (c >= 'A' && c <= 'Z')
-        return (c + 32); // 'A' + 32 = 'a' dans la table ASCII
-    return (c);          // Si ce n'est pas une majuscule, retourne le caractère original
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

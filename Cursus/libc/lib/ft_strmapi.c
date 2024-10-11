@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:55:43 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:56:53 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -12,30 +24,22 @@
  *
  * Retourne la nouvelle chaîne, ou NULL si l'allocation échoue.
  */
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-    char *new_str;
-    size_t i;
+	char	*new_str;
+	size_t	i;
 
-    // Vérifier si la chaîne d'entrée ou la fonction est NULL
-    if (!s || !f)
-        return (NULL);
-
-    // Allouer la mémoire pour la nouvelle chaîne, en tenant compte du caractère nul final
-    new_str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-    if (!new_str)
-        return (NULL);
-
-    // Appliquer la fonction f à chaque caractère de la chaîne s
-    i = 0;
-    while (s[i])
-    {
-        new_str[i] = f(i, s[i]); // Appel de la fonction f avec l'index et le caractère actuel
-        i++;
-    }
-
-    // Ajouter le caractère nul à la fin de la nouvelle chaîne
-    new_str[i] = '\0';
-
-    return (new_str);
+	if (!s || !f)
+		return (NULL);
+	new_str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		new_str[i] = f(i, s[i]);
+		i++;
+	}
+	new_str[i] = '\0';
+	return (new_str);
 }

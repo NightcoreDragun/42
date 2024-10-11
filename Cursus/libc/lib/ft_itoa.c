@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 12:35:18 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 12:43:42 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -7,25 +19,36 @@
  * Cette fonction calcule le nombre de chiffres nécessaires pour représenter
  * l'entier en prenant en compte le signe pour les nombres négatifs.
  */
-static size_t ft_get_int_len(int n)
+static size_t	ft_get_int_len(int n)
 {
-    size_t len = 0;
+	size_t	len;
 
-    // Gérer le cas où n est 0
-    if (n == 0)
-        return (1);
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		len++;
+	while (n != 0)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
 
-    // Si n est négatif, ajouter un caractère pour le signe
-    if (n < 0)
-        len++;
-
-    // Compter le nombre de chiffres
-    while (n != 0)
-    {
-        n /= 10;
-        len++;
-    }
-    return (len);
+/**
+ * ft_fill_str - Remplit la chaîne de caractères avec les chiffres de l'entier
+ * @str: La chaîne à remplir
+ * @num: La valeur absolue de l'entier
+ * @len: La longueur de la chaîne
+ */
+static void	ft_fill_str(char *str, unsigned int num, size_t len)
+{
+	while (num != 0)
+	{
+		str[--len] = (num % 10) + '0';
+		num /= 10;
+	}
 }
 
 /**
@@ -36,47 +59,32 @@ static size_t ft_get_int_len(int n)
  * représentant l'entier `n` reçu en argument. Les nombres négatifs sont
  * gérés correctement.
  *
- * Retourne une chaîne représentant l'entier ou NULL en cas d'échec de l'allocation.
+ * Retourne une chaîne représentant l'entier ou 
+ * NULL en cas d'échec de l'allocation.
  */
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    size_t len;
-    char *str;
-    unsigned int num;
+	size_t			len;
+	char			*str;
+	unsigned int	num;
 
-    // Obtenir la longueur de l'entier (nombre de chiffres + signe si négatif)
-    len = ft_get_int_len(n);
-
-    // Allouer de la mémoire pour la chaîne, avec un caractère nul à la fin
-    str = (char *)malloc(sizeof(char) * (len + 1));
-    if (!str)
-        return (NULL);
-
-    // Terminer la chaîne par le caractère nul
-    str[len] = '\0';
-
-    // Gérer le cas où n est 0
-    if (n == 0)
-    {
-        str[0] = '0';
-        return (str);
-    }
-
-    // Si n est négatif, gérer le signe et utiliser num comme valeur absolue
-    if (n < 0)
-    {
-        str[0] = '-';
-        num = -n;
-    }
-    else
-        num = n;
-
-    // Remplir la chaîne en partant de la fin
-    while (num != 0)
-    {
-        str[--len] = (num % 10) + '0';
-        num /= 10;
-    }
-
-    return (str);
+	len = ft_get_int_len(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = '\0';
+	if (n == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	if (n < 0)
+	{
+		num = -n;
+		str[0] = '-';
+	}
+	else
+		num = n;
+	ft_fill_str(str, num, len);
+	return (str);
 }

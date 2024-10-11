@@ -1,31 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:14:50 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:19:42 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
- * ft_strchr - Cherche la première occurrence d'un caractère dans une chaîne
- * @s: La chaîne de caractères à examiner
- * @c: Le caractère à rechercher
+ * ft_strchr - Searches for the first occurrence of a character in a string
+ * @s: The string to search
+ * @c: The character to find
  *
- * Cette fonction parcourt la chaîne `s` pour trouver la première occurrence
- * du caractère `c`. Le caractère de fin de chaîne `\0` est également considéré.
- * Si le caractère `c` est trouvé, un pointeur vers cette position dans `s` est
- * retourné. Si le caractère `c` n'est pas trouvé, la fonction renvoie NULL.
+ * This function searches the string `s` for the first occurrence of the
+ * character `c`. The null character `\0` is also considered. If the character
+ * `c` is found, a pointer to that position in `s` is returned. If the character
+ * `c` is not found, the function returns NULL.
  *
- * Retourne un pointeur vers la première occurrence de `c` ou NULL s'il n'est pas trouvé.
+ * Returns a pointer to the first occurrence of `c` or NULL if not found.
  */
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    // Parcourt la chaîne jusqu'à trouver le caractère ou atteindre le '\0'
-    while (*s)
-    {
-        if (*s == (char)c)      // Si le caractère correspond à c
-            return ((char *)s); // Retourne un pointeur vers la position du caractère
-        s++;
-    }
+	unsigned char	uc;
 
-    // Si c est '\0', on retourne un pointeur vers la fin de la chaîne
-    if (c == '\0')
-        return ((char *)s);
-
-    // Si le caractère n'est pas trouvé, retourne NULL
-    return (NULL);
+	uc = (unsigned char)c;
+	while (*s)
+	{
+		if ((unsigned char)*s == uc)
+			return ((char *)s);
+		s++;
+	}
+	if (uc == '\0')
+		return ((char *)s);
+	return (NULL);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 12:45:47 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 12:54:37 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -15,20 +27,20 @@
  * - 0 : `s1` est égale à `s2`
  * - > 0 : `s1` est supérieure à `s2`
  */
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-    const unsigned char *p1 = (const unsigned char *)s1;
-    const unsigned char *p2 = (const unsigned char *)s2;
-    size_t i = 0;
+	const unsigned char	*p1;
+	const unsigned char	*p2;
+	size_t				i;
 
-    // Compare chaque octet des deux zones mémoire jusqu'à n octets
-    while (i < n)
-    {
-        if (p1[i] != p2[i])         // Si une différence est trouvée
-            return (p1[i] - p2[i]); // Retourne la différence des octets
-        i++;
-    }
-
-    // Si aucune différence n'est trouvée, retourne 0
-    return (0);
+	p1 = (const unsigned char *)s1;
+	p2 = (const unsigned char *)s2;
+	i = 0;
+	while (i < n)
+	{
+		if (p1[i] != p2[i])
+			return (p1[i] - p2[i]);
+		i++;
+	}
+	return (0);
 }

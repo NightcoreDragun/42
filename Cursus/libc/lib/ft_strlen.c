@@ -1,22 +1,34 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:54:30 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:55:27 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
- * ft_strlen - Calcule la longueur d'une chaîne de caractères
- * @s: Pointeur vers la chaîne de caractères
+ * ft_strlen - Calculates the length of a string
+ * @s: Pointer to the string
  *
- * Cette fonction renvoie la longueur de la chaîne `s` (c'est-à-dire le nombre
- * de caractères qui la composent jusqu'au caractère nul `\0`), sans compter
- * ce dernier. Elle parcourt chaque caractère de la chaîne et incrémente le compteur
- * jusqu'à rencontrer `\0`.
+ * This function returns the length of the string `s`
+ * (i.e., the number of characters until the null character `\0`),
+ * without counting the `\0`. It iterates over each character
+ * and increments the counter until it encounters `\0`.
  *
- * Retourne la longueur de la chaîne (sans le `\0`).
+ * Returns the length of the string (excluding `\0`).
  */
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
-    size_t len = 0;
+	size_t	len;
 
-    // Parcourt chaque caractère de la chaîne jusqu'à rencontrer '\0'
-    while (s[len] != '\0')
-        len++;
-    return (len);
+	len = 0;
+	while (s[len] != '\0')
+		len++;
+	return (len);
 }

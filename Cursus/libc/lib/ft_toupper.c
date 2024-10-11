@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 14:07:48 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 14:08:48 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -12,10 +24,9 @@
  * Retourne le caractère converti en majuscule, ou le caractère inchangé
  * s'il n'est pas une minuscule.
  */
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    // Si le caractère est une lettre minuscule, on le convertit en majuscule
-    if (c >= 'a' && c <= 'z')
-        return (c - 32); // 'a' - 'A' = 32 dans la table ASCII
-    return (c);          // Si ce n'est pas une minuscule, retourne le caractère original
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

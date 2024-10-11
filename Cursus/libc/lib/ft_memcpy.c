@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 12:55:40 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 12:58:00 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -13,19 +25,16 @@
  *
  * Retourne un pointeur vers `dst`.
  */
-void *ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    // Cast des pointeurs génériques (void *) en unsigned char * pour manipuler
-    // les octets individuellement.
-    unsigned char *d = (unsigned char *)dst;
-    const unsigned char *s = (const unsigned char *)src;
+	unsigned char		*d;
+	const unsigned char	*s;
 
-    if (!dst && !src)
-        return (NULL);
-
-    // Copie chaque octet de src vers dst
-    while (n--)
-        *d++ = *s++;
-
-    return (dst);
+	if (!dst && !src)
+		return (NULL);
+	d = (unsigned char *)dst;
+	s = (const unsigned char *)src;
+	while (n--)
+		*d++ = *s++;
+	return (dst);
 }

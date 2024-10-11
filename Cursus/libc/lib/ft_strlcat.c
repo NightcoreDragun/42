@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:51:29 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:52:28 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -40,36 +52,22 @@
  * Retourne : La longueur totale que la chaîne concaténée aurait dû avoir
  * (longueur de `dst` + longueur de `src`).
  */
-size_t ft_strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-    size_t dst_len = 0; // Longueur de la chaîne de destination (dst)
-    size_t src_len = 0; // Longueur de la chaîne source (src)
-    size_t i;           // Index pour parcourir src et copier les caractères
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
 
-    // Calcule la longueur de dst et src
-    dst_len = ft_strlen(dst);
-    src_len = ft_strlen(src);
-
-    // Si dstsize est inférieur ou égal à la longueur de dst,
-    // cela signifie qu'il n'y a pas assez de place pour copier src.
-    // Retourne la longueur totale que la chaîne aurait dû avoir (dstsize + src_len).
-    if (dstsize <= dst_len)
-        return (dstsize + src_len);
-
-    // Copie les caractères de src dans dst, en laissant de la place pour le caractère nul
-    // On ne copie que jusqu'à (dstsize - 1) pour éviter un dépassement de mémoire
-    // et garantir que dst sera toujours terminé par '\0'.
-    i = 0;
-    while (src[i] && (dst_len + i) < (dstsize - 1))
-    {
-        dst[dst_len + i] = src[i];
-        i++;
-    }
-
-    // Ajoute le caractère nul final pour garantir que la chaîne est bien terminée
-    dst[dst_len + i] = '\0';
-
-    // Retourne la longueur totale que la chaîne finale aurait dû avoir
-    // Cela permet de savoir si la chaîne a été tronquée (si dstsize était trop petit).
-    return (dst_len + src_len);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dstsize <= dst_len)
+		return (dstsize + src_len);
+	i = 0;
+	while (src[i] && (dst_len + i) < (dstsize - 1))
+	{
+		dst[dst_len + i] = src[i];
+		i++;
+	}
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }

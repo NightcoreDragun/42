@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:52:38 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:54:18 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -14,28 +26,23 @@
  * Retourne la longueur totale de la chaîne source `src`, permettant de savoir
  * si la chaîne source a été tronquée dans la destination.
  */
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-    size_t i = 0;
+	size_t	i;
+	size_t	src_len;
 
-    // Vérifie si les pointeurs src ou dst sont nuls
-    if (!dst || !src)
-        return (0);
-
-    // Si dstsize > 0, on copie jusqu'à dstsize - 1 pour laisser de la place pour '\0'
-    if (dstsize > 0)
-    {
-        while (src[i] && i < dstsize - 1)
-        {
-            dst[i] = src[i];
-            i++;
-        }
-        dst[i] = '\0'; // Ajoute le caractère nul à la fin de la chaîne destination
-    }
-
-    // Calcule la longueur totale de la chaîne source, même si elle n'a pas été entièrement copiée
-    while (src[i])
-        i++;
-
-    return (i); // Retourne la longueur totale de src
+	i = 0;
+	src_len = 0;
+	if (dstsize > 0)
+	{
+		while (src[i] && i < dstsize - 1)
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	while (src[src_len])
+		src_len++;
+	return (src_len);
 }

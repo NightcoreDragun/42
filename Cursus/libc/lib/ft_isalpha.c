@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 12:38:45 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 12:39:00 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -9,9 +21,8 @@
  *
  * Retourne 1 si c'est une lettre, 0 sinon.
  */
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	// Vérifie si le caractère est une lettre majuscule ou minuscule
 	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
 	{
 		return (1);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 12:59:30 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:00:33 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -12,20 +24,17 @@
  *
  * Retourne un pointeur vers `b`.
  */
-void *ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	unsigned char *ptr;
-	unsigned int i;
+	unsigned char	*ptr;
+	size_t			i;
 
-	ptr = (unsigned char *)b; // Cast du pointeur b en unsigned char *
+	ptr = (unsigned char *)b;
 	i = 0;
-
-	// Boucle pour remplir len octets avec la valeur de c
 	while (i < len)
 	{
-		ptr[i] = (unsigned char)c; // Remplit chaque octet avec c
+		ptr[i] = (unsigned char)c;
 		i++;
 	}
-
-	return (b); // Retourne le pointeur initial b
+	return (b);
 }

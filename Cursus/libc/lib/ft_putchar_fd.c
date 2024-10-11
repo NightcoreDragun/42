@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:00:46 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:02:09 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -10,8 +22,7 @@
  *
  * Retourne : Aucune, la fonction est de type void.
  */
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-    // Utiliser la fonction write pour écrire le caractère sur le descripteur fd
-    write(fd, &c, 1);
+	write(fd, &c, 1);
 }

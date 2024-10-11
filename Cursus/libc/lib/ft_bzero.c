@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 12:35:18 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 12:35:59 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -7,13 +19,9 @@
  *
  * Cette fonction prend un pointeur vers une zone mémoire `s` et met les `n`
  * premiers octets de cette zone à zéro. Elle utilise la fonction `ft_memset`
- * pour remplir la mémoire avec la valeur 0. C'est une fonction couramment
- * utilisée pour initialiser ou réinitialiser des blocs de mémoire avant leur
- * utilisation.
+ * pour remplir la mémoire avec la valeur 0.
  */
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    // Utilisation de ft_memset pour remplir la zone mémoire pointée par `s` avec des zéros (0)
-    // 'n' représente le nombre d'octets que nous voulons mettre à zéro.
-    ft_memset(s, 0, n);
+	ft_memset(s, 0, n);
 }

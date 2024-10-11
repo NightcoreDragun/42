@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/11 13:46:07 by apalalau          #+#    #+#             */
+/*   Updated: 2024/10/11 13:47:20 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../libft.h"
 
 /**
@@ -11,21 +23,15 @@
  *
  * Retourne un pointeur vers la chaîne dupliquée ou NULL en cas d'échec.
  */
-char *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-    char *dup;
-    size_t len;
+	char	*dup;
+	size_t	len;
 
-    // Calcul de la longueur de la chaîne s1
-    len = ft_strlen(s1) + 1;
-
-    // Allocation de mémoire pour la nouvelle chaîne
-    dup = (char *)malloc(len);
-    if (!dup)
-        return (NULL);
-
-    // Copie de la chaîne s1 dans dup
-    ft_memcpy(dup, s1, len);
-
-    return (dup);
+	len = ft_strlen(s1) + 1;
+	dup = (char *)malloc(len);
+	if (!dup)
+		return (NULL);
+	ft_memcpy(dup, s1, len);
+	return (dup);
 }

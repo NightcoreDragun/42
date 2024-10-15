@@ -17,7 +17,21 @@
  * @n: L'entier à analyser
  *
  * Cette fonction calcule le nombre de chiffres nécessaires pour représenter
- * l'entier en prenant en compte le signe pour les nombres négatifs.
+ * l'entier, en tenant compte du signe pour les nombres négatifs.
+ *
+* Cas particuliers :
+ * - n = 0  -> retourne 1 (un seul chiffre : '0')
+ * - n = 0000  -> retourne 1 (les zéros supplémentaires ne sont pas comptés)
+ *
+ * Exemples pour des entiers positifs :
+ * - n = 123  -> retourne 3
+ * - n = 456789  -> retourne 6
+ * - n = 987654321  -> retourne 9
+ *
+ * Exemples pour des entiers négatifs :
+ * - n = -456  -> retourne 4 (3 chiffres + 1 signe)
+ * - n = -7890  -> retourne 5 (4 chiffres + 1 signe)
+ * - n = -123456  -> retourne 7 (6 chiffres + 1 signe)
  */
 static size_t	ft_get_int_len(int n)
 {

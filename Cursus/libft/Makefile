@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: irobinso <irobinso@student.42lausanne.c    +#+  +:+       +#+         #
+#    By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/04 11:39:11 by irobinso          #+#    #+#              #
-#    Updated: 2024/10/10 11:17:54 by irobinso         ###   ########.fr        #
+#    Created: 2024/10/04 11:39:11 by apalalau          #+#    #+#              #
+#    Updated: 2024/10/15 11:30:18 by apalalau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,11 +24,6 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
        ft_tolower.c ft_toupper.c ft_strtrim.c ft_strncmp.c ft_split.c
 OBJ = $(SRCS:%.c=%.o)
 
-# Bonus source and object files
-SRCS_B = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
-         ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-OBJS_B = $(SRCS_B:%.c=%.o)
-
 # Library name
 NAME = libft.a
 
@@ -42,10 +37,6 @@ $(NAME): $(OBJ)
 # Rule to compile individual .c files to .o files
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
-
-# Bonus target - includes both main and bonus object files
-bonus: $(NAME) $(OBJS_B)
-	ar rcs $(NAME) $(OBJ) $(OBJS_B)
 
 # Clean target to remove object files
 clean:

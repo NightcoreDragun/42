@@ -13,17 +13,18 @@
 #include "./libft.h"
 
 /**
- * ft_strchr - Searches for the first occurrence of a character in a string
- * @s: The string to search
- * @c: The character to find
+ * ft_strchr - Recherche la première occurrence d'un caractère dans une chaîne
+ * @s: La chaîne à rechercher
+ * @c: Le caractère à trouver
  *
- * This function searches the string `s` for the first occurrence of the
- * character `c`. The null character `\0` is also considered. If the character
- * `c` is found, a pointer to that position in `s` is returned. If the character
- * `c` is not found, the function returns NULL.
+ * Cette fonction recherche dans la chaîne `s` la première occurrence du
+ * caractère `c`. Le caractère nul `\0` est également pris en compte. Si le
+ * caractère `c` est trouvé, un pointeur vers cette position dans `s` est
+ * renvoyé. Si le caractère `c` n'est pas trouvé, la fonction renvoie NULL.
  *
- * Returns a pointer to the first occurrence of `c` or NULL if not found.
+ * Renvoie un pointeur vers la première occurrence de `c` ou NULL si non trouvé.
  */
+
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned char	uc;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apalalau <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*   By: nightcoredragun <nightcoredragun@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 09:36:50 by apalalau          #+#    #+#             */
-/*   Updated: 2024/08/21 09:36:57 by apalalau         ###   ########.fr       */
+/*   Updated: 2024/10/22 17:08:32 by nightcoredr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,12 @@ char	*ft_strcpy(char *dest, char *src)
 	}
 	dest[i] = '\0';
 	return (dest);
+}
+
+int main ()
+{
+	char src[] = "Hello";
+	char dest[] = "World";
+	ft_strcpy(dest, src);
+	return 0;
 }

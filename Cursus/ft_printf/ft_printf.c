@@ -6,12 +6,11 @@
 /*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:13:51 by apalalau          #+#    #+#             */
-/*   Updated: 2024/10/31 12:27:53 by apalalau         ###   ########.fr       */
+/*   Updated: 2024/10/31 12:36:02 by apalalau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/ft_printf.h"
-#include "libft.h"
 
 static int	ft_putnbr_base(unsigned long num, int base, char *digits)
 {

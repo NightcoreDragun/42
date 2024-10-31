@@ -21,6 +21,7 @@
  * par `fd`. Elle gère les entiers négatifs, le cas spécial de la plus petite 
  * valeur négative et utilise la fonction write pour afficher chaque chiffre.
  */
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	char	c;
@@ -41,7 +42,7 @@ void	ft_putnbr_fd(int n, int fd)
 	write(fd, &c, 1);
 }
 
-int main (void)
+int	main(void)
 {
 	ft_putnbr_fd(42, 1);
 	return (0);

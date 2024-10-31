@@ -1,52 +1,56 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: nightcoredragun <nightcoredragun@studen    +#+  +:+       +#+        #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/10/31 10:10:00 by nightcoredr       #+#    #+#              #
-#    Updated: 2024/10/31 10:05:33 by nightcoredr      ###   ########.fr       #
-#                                                                              #
-# **************************************************************************** #
+# Output file
+NAME		= libftprintf.a
 
-NAME = libftprintf.a
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
+# Compiler settings
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
 
-# Source and object files for ft_printf
-SRCS = ft_printf.c
-OBJS = $(SRCS:.c=.o)
+# Library creation and cleaning commands
+AR			= ar rcs
+RM			= rm -f
 
-# Paths for libft and includes
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
-INCLUDES = -I include -I $(LIBFT_DIR)/include
+# Source files for ft_printf
+SRC			= ft_printf.c 
+
+# Define libft and its directory
+LIBFT_DIR	= ./libft/
+LIBFT		= $(LIBFT_DIR)libft.a
+
+# Object files
+OBJS		= $(SRC:.c=.o)
+
+# Header files
+HEAD		= include/ft_printf.h include/libft.h
+INCLUDES	= -I include -I $(LIBFT_DIR)include
 
 # Default target
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(AR) $(NAME) $(OBJS) $(LIBFT)
-
 # Compile libft if it doesn't exist
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR) all
 
-# Clean object files in ft_printf
+# Compile object files
+%.o : %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+# Link libftprintf with libft
+$(NAME): $(OBJS) $(LIBFT)
+	cp $(LIBFT) $(NAME)
+	$(AR) $(NAME) $(OBJS)
+
+# Clean object files
 clean:
-	$(RM) $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
+	$(RM) $(OBJS)
 
-# Full clean, including library files
+# Full clean, including libraries
 fclean: clean
-	$(RM) $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
+	$(RM) $(NAME)
 
 # Rebuild everything
 re: fclean all
 
-# Prevent make from treating clean/fclean as files
+# Phony targets
 .PHONY: all clean fclean re

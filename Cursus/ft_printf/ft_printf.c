@@ -6,7 +6,7 @@
 /*   By: nightcoredragun <nightcoredragun@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 09:58:24 by nightcoredr       #+#    #+#             */
-/*   Updated: 2024/10/31 11:07:05 by nightcoredr      ###   ########.fr       */
+/*   Updated: 2024/10/31 11:10:54 by nightcoredr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_putstr(char *s)
 		s = "(null)";
 	len = 0;
 	while (*s)
-		len += ft_putchar(*s++);
+		len += (ft_putchar_fd(*s++, 1), 1);
 	return (len);
 }
 
@@ -31,19 +31,19 @@ static int	ft_putnbr_base(long num, int base, char *digits)
 	count = 0;
 	if (num < 0)
 	{
-		count += ft_putchar('-');
+		count += (ft_putchar_fd('-', 1), 1);
 		num = -num;
 	}
 	if (num >= base)
 		count += ft_putnbr_base(num / base, base, digits);
-	count += ft_putchar(digits[num % base]);
+	count += (ft_putchar_fd(digits[num % base], 1), 1);
 	return (count);
 }
 
 static int	ft_handle_conversion(char format, va_list args)
 {
 	if (format == 'c')
-		return (ft_putchar(va_arg(args, int)));
+		return (ft_putchar_fd(va_arg(args, int), 1), 1);
 	if (format == 's')
 		return (ft_putstr(va_arg(args, char *)));
 	if (format == 'p')
@@ -61,7 +61,7 @@ static int	ft_handle_conversion(char format, va_list args)
 		return (ft_putnbr_base(va_arg(args, unsigned int), 16,
 				"0123456789ABCDEF"));
 	if (format == '%')
-		return (ft_putchar('%'));
+		return (ft_putchar_fd('%', 1), 1);
 	return (0);
 }
 
@@ -79,7 +79,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%' && format[i + 1])
 			count += ft_handle_conversion(format[++i], args);
 		else
-			count += ft_putchar(format[i]);
+			count += (ft_putchar_fd(format[i], 1), 1);
 		i++;
 	}
 	va_end(args);

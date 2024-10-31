@@ -6,7 +6,7 @@
 /*   By: nightcoredragun <nightcoredragun@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:03:08 by nightcoredr       #+#    #+#             */
-/*   Updated: 2024/10/31 10:27:16 by nightcoredr      ###   ########.fr       */
+/*   Updated: 2024/10/31 11:08:53 by nightcoredr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <unistd.h> 
-# include "../libft/libft.h"
+# include "./libft.h"
 
 int	ft_printf(const char *format, ...);
 

@@ -8,6 +8,19 @@ size_t	ft_strlen(const char *str)
 	return (len);
 }
 
+char	*ft_strchr(const char *s, int c)
+{
+	if (!s)
+		return (NULL);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	return (c == '\0' ? (char *)s : NULL);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	i = 0, j = 0;

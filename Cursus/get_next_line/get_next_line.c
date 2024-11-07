@@ -1,24 +1,50 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 13:40:18 by apalalau          #+#    #+#             */
+/*   Updated: 2024/11/07 13:43:24 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
-static char	*read_line(int fd, char *saved)
+static char	*allocate_and_read(int fd, char *saved, char *buffer)
 {
-	char	*buffer = malloc(BUFFER_SIZE + 1);
 	ssize_t	bytes_read;
 
-	if (!buffer)
-		return (NULL);
-	while (!ft_strchr(saved, '\n') && (bytes_read = read(fd, buffer, BUFFER_SIZE)) > 0)
+	while (!ft_strchr(saved, '\n'))
 	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read == -1)
+		{
+			free(saved);
+			saved = NULL;
+			return (NULL);
+		}
+		if (bytes_read == 0)
+			break ;
 		buffer[bytes_read] = '\0';
 		saved = ft_strjoin(saved, buffer);
 		if (!saved)
-		{
-			free(buffer);
 			return (NULL);
-		}
 	}
+	return (saved);
+}
+
+static char	*read_line(int fd, char *saved)
+{
+	char	*buffer;
+
+	buffer = malloc(BUFFER_SIZE + 1);
+	if (!buffer)
+		return (NULL);
+	saved = allocate_and_read(fd, saved, buffer);
 	free(buffer);
-	if (bytes_read < 0)
+	if (!saved || (saved && *saved == '\0'))
 	{
 		free(saved);
 		return (NULL);
@@ -28,22 +54,27 @@ static char	*read_line(int fd, char *saved)
 
 static char	*extract_line(char *saved)
 {
-	size_t	i = 0;
+	size_t	i;
 	char	*line;
 
+	i = 0;
 	if (!saved || !*saved)
 		return (NULL);
 	while (saved[i] && saved[i] != '\n')
 		i++;
-	line = ft_substr(saved, 0, i + (saved[i] == '\n' ? 1 : 0));
+	if (saved[i] == '\n')
+		line = ft_substr(saved, 0, i + 1);
+	else
+		line = ft_substr(saved, 0, i);
 	return (line);
 }
 
 static char	*save_remainder(char *saved)
 {
-	size_t	i = 0;
+	size_t	i;
 	char	*remainder;
 
+	i = 0;
 	while (saved[i] && saved[i] != '\n')
 		i++;
 	if (!saved[i])

@@ -1,8 +1,20 @@
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: apalalau <apalalau@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/07 13:31:27 by apalalau          #+#    #+#             */
+/*   Updated: 2024/11/07 13:39:24 by apalalau         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+# include <stdlib.h>
+# include <unistd.h>
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *str);
@@ -11,4 +23,4 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 
-#endif
+#endif /* GET_NEXT_LINE_H */

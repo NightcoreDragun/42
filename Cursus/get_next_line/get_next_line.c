@@ -92,6 +92,7 @@ char	*get_next_line(int fd)
 	static char	*saved;
 	char		*line;
 
+	#Check aussi le max BUFFER_SIZE 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	saved = read_line(fd, saved);
